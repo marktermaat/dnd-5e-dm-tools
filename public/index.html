@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>D&D 5e DM tools</title>
+			<link href="dm-tools.css" rel="stylesheet">
+			<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js'></script>
+		<body>
+			<div id="players" class='element'>
+		    <h1>Players</h1>
+		    <table data-bind="foreach: players">
+		        <tr>
+		            <td>Player of level <input class="small-text-input" data-bind="textInput: level" /></td>
+		            <td data-bind="click: $root.removePlayer">X</td>
+		        </tr>
+		    </table>
+		    
+		    <button data-bind="click: addPlayer">Add</button>
+		</div>
+
+		<div id="monsters" class='element'>
+		    <h1>Monsters</h1>
+		    <table>
+		        <tr>
+		            <th>Monster</th>
+		            <th>Level</th>
+		            <th>Amount</th>
+		            <th>XP/monster</th>
+		            <th>Total XP</th>
+		        </tr>
+		        <!-- ko foreach: monsters -->
+		        <tr>
+		            <td data-bind="text: $index" />
+		            <td><input class="small-text-input" data-bind="textInput: level" /></td>
+		            <td><input class="small-text-input" data-bind="textInput: amount" /></td>
+		            <td><input class="small-text-input" data-bind="textInput: xpPerMonster" /></td>
+		            <td><input class="small-text-input" data-bind="textInput: totalXp" /></td>
+		        </tr>
+		        <!-- /ko -->
+		        <tr class="result-row">
+		            <td></td><td></td>
+		            <td data-bind="text: totalMonsters"></td>
+		            <td></td>
+		            <td data-bind="text: totalXp"></td>
+		        </tr>
+		        <tr>
+		            <td></td><td></td><td></td>
+		            <td>Multiplier</td>
+		            <td data-bind="text: multiplier"></td>
+		        </tr>
+		    </table>
+		    
+		    <br><br>
+		    <span class="difficulty-label">Easy</span>
+		    <span class="difficulty-label">Medium</span>
+		    <span class="difficulty-label">Hard</span>
+		    <span class="difficulty-label">Very hard</span>
+		    <div class="encounter-difficulty-area">
+		        <div class="encounter-difficulty-bar" data-bind="style: {left: difficultyDistance()}" ></div>
+		    </div>
+		    
+		    <button data-bind="click: addMonster">Add</button>
+		    <button data-bind="click: removeMonster">Remove</button>
+		</div>
+
+		<script type='text/javascript' src="dm-tools.js"></script>
+		</body>
+	</head>
+</html>

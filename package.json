@@ -9,7 +9,7 @@
   	"jshint": "latest",
   	"rimraf": "latest",
   	"uglify-js": "latest",
-  	"nodemon": "latest",
+  	"watch": "latest",
   	"parallelshell": "latest",
   	"opener": "latest",
   	"http-server": "latest",
@@ -21,12 +21,11 @@
   	"prebuild": "npm run clean -s",
   	"build": "npm run build:scripts -s",
   	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
+  	"build:watch": "watch 'npm run build' assets public",
 
-  	"watch": "npm run watch:build -s",
-  	"watch:build": "nodemon -q -w assets/ public/ --ext '.' --exec 'npm run build'",
-
+	"open:dev": "opener http://localhost:9090",
   	"serve": "http-server -p 9090 public/",
     "live-reload": "live-reload --port 9091 public/",
-    "dev": "npm run open:dev -s & parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run watch -s\""
+    "dev": "npm run open:dev -s & parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run build:watch -s\""
   }
 }

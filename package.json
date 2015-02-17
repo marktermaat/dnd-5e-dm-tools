@@ -6,15 +6,27 @@
   "author": "Mark ter Maat",
   "license": "MIT",
   "devDependencies": {
-  	"jshint": "^2.6.0",
-  	"rimraf": "^2.2.8",
-  	"uglify-js": "^2.4.16"
+  	"jshint": "latest",
+  	"rimraf": "latest",
+  	"uglify-js": "latest",
+  	"nodemon": "latest",
+  	"parallelshell": "latest",
+  	"opener": "latest",
+  	"http-server": "latest",
+  	"live-reload": "latest"
   },
   "scripts": {
   	"clean": "rimraf dist/*.js dist/*.js.map",
 
   	"prebuild": "npm run clean -s",
   	"build": "npm run build:scripts -s",
-  	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map"
+  	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
+
+  	"watch": "npm run watch:build -s",
+  	"watch:build": "nodemon -q -w assets/ public/ --ext '.' --exec 'npm run build'",
+
+  	"serve": "http-server -p 9090 public/",
+    "live-reload": "live-reload --port 9091 public/",
+    "dev": "npm run open:dev -s & parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run watch -s\""
   }
 }

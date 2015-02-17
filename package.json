@@ -5,6 +5,7 @@
   "main": "index.html",
   "author": "Mark ter Maat",
   "license": "MIT",
+
   "devDependencies": {
   	"jshint": "latest",
   	"rimraf": "latest",
@@ -15,6 +16,7 @@
   	"http-server": "latest",
   	"live-reload": "latest"
   },
+  
   "scripts": {
   	"clean": "rimraf dist/*.js dist/*.js.map",
 
@@ -23,7 +25,7 @@
   	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
   	"build:watch": "watch 'npm run build' assets public",
 
-	"open:dev": "opener http://localhost:9090",
+	  "open:dev": "opener http://localhost:9090",
   	"serve": "http-server -p 9090 public/",
     "live-reload": "live-reload --port 9091 public/",
     "dev": "npm run open:dev -s & parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run build:watch -s\""

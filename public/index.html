@@ -6,60 +6,56 @@
 			<script type='text/javascript' src='//localhost:9091/livereload.js'></script>
 		<body>
 			<div id="players" class='element'>
-		    <h1>Players</h1>
-		    <table data-bind="foreach: players">
-		        <tr>
-		            <td>Player of level <input class="small-text-input" data-bind="textInput: level" /></td>
-		            <td data-bind="click: $root.removePlayer">X</td>
+		    <h1>players</h1>
+		    <table class="element-table">
+		    	<tr>
+		            <th>name</th>
+		            <th>level</th>
 		        </tr>
+		        <!-- ko foreach: players -->
+		        <tr class="element-table-content-row">
+		        	<td><input class="element-input" data-bind="textInput: name" /></td>
+		            <td><input class="element-input small" data-bind="textInput: level" /></td>
+		            <td data-bind="click: $root.removePlayer"><image class="element-table-icon show-on-hover " src="images/icon-delete.png"></image></td>
+		        </tr>
+		        <!-- /ko -->
+		        
 		    </table>
 		    
-		    <button data-bind="click: addPlayer">Add</button>
+		    <button data-bind="click: addPlayer">add player</button>
 		</div>
 
 		<div id="monsters" class='element'>
 		    <h1>Monsters</h1>
-		    <table>
+		    <table class="element-table">
 		        <tr>
 		            <th>Monster</th>
 		            <th>Level</th>
 		            <th>Amount</th>
-		            <th>XP/monster</th>
-		            <th>Total XP</th>
+		            <td></td>
 		        </tr>
 		        <!-- ko foreach: monsters -->
-		        <tr>
+		        <tr class="element-table-content-row">
 		            <td data-bind="text: $index" />
-		            <td><input class="small-text-input" data-bind="textInput: level" /></td>
-		            <td><input class="small-text-input" data-bind="textInput: amount" /></td>
-		            <td><input class="small-text-input" data-bind="textInput: xpPerMonster" /></td>
-		            <td><input class="small-text-input" data-bind="textInput: totalXp" /></td>
+		            <td><input class="element-input small" data-bind="textInput: level" /></td>
+		            <td><input class="element-input small" data-bind="textInput: amount" /></td>
+		            <td data-bind="click: $root.removePlayer"><image class="element-table-icon show-on-hover " src="images/icon-delete.png"></image></td>
 		        </tr>
 		        <!-- /ko -->
-		        <tr class="result-row">
-		            <td></td><td></td>
-		            <td data-bind="text: totalMonsters"></td>
-		            <td></td>
-		            <td data-bind="text: totalXp"></td>
-		        </tr>
-		        <tr>
-		            <td></td><td></td><td></td>
-		            <td>Multiplier</td>
-		            <td data-bind="text: multiplier"></td>
-		        </tr>
 		    </table>
 		    
-		    <br><br>
-		    <span class="difficulty-label">Easy</span>
-		    <span class="difficulty-label">Medium</span>
-		    <span class="difficulty-label">Hard</span>
-		    <span class="difficulty-label">Very hard</span>
-		    <div class="encounter-difficulty-area">
-		        <div class="encounter-difficulty-bar" data-bind="style: {left: difficultyDistance()}" ></div>
+		    <div class="element-encounter-difficulty">
+			    <span class="element-encounter-difficulty-label">Easy</span>
+			    <span class="element-encounter-difficulty-label">Medium</span>
+			    <span class="element-encounter-difficulty-label">Hard</span>
+			    <span class="element-encounter-difficulty-label">Very hard</span>
+			    
+			    <div class="element-encounter-difficulty-bar">
+			        <div class="element-encounter-difficulty-indicator" data-bind="style: {left: difficultyDistance()}" ></div>
+			    </div>
 		    </div>
 		    
 		    <button data-bind="click: addMonster">Add</button>
-		    <button data-bind="click: removeMonster">Remove</button>
 		</div>
 
 		<script type='text/javascript' src="dm-tools.js"></script>

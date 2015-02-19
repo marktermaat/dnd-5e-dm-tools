@@ -13,6 +13,7 @@ function PlayerModel() {
  
     self.addPlayer = function() {
         self.players.push({
+            name: ko.observable('player ' + self.players().length),
             level: ko.observable(1)
         })
     };

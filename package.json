@@ -6,29 +6,31 @@
   "author": "Mark ter Maat",
   "license": "MIT",
 
+  "dependencies": {
+    "normalize.less": "~1.0.0"
+  },
+
   "devDependencies": {
-  	"jshint": "latest",
-  	"rimraf": "latest",
-  	"uglify-js": "latest",
+    "jshint": "latest",
+    "rimraf": "latest",
+    "uglify-js": "latest",
     "less": "latest",
-  	"watch": "latest",
-  	"parallelshell": "latest",
-  	"opener": "latest",
-  	"http-server": "latest",
-  	"live-reload": "latest"
+    "watch": "latest",
+    "parallelshell": "latest",
+    "opener": "latest",
+    "http-server": "latest",
+    "live-reload": "latest"
   },
   
   "scripts": {
-  	"clean": "rimraf public/*.js public/*.js.map public/*.css",
-
-  	"prebuild": "npm run clean -s",
-  	"build": "npm run build:scripts -s && npm run build:styles -s",
-  	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
+    "clean": "rimraf public/*.js public/*.js.map public/*.css",
+    "prebuild": "npm run clean -s",
+    "build": "npm run build:scripts -s && npm run build:styles -s",
+    "build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
     "build:styles": "lessc assets/styles/main.less public/dm-tools.css",
-  	"build:watch": "watch 'npm run build' assets public",
-
-	  "open:dev": "opener http://localhost:9090",
-  	"serve": "http-server -p 9090 public/",
+    "build:watch": "watch 'npm run build' assets public",
+    "open:dev": "opener http://localhost:9090",
+    "serve": "http-server -p 9090 public/",
     "live-reload": "live-reload --port 9091 public/",
     "dev": "npm run open:dev -s & parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run build:watch -s\""
   }

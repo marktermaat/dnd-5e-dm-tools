@@ -10,6 +10,7 @@
   	"jshint": "latest",
   	"rimraf": "latest",
   	"uglify-js": "latest",
+    "less": "latest",
   	"watch": "latest",
   	"parallelshell": "latest",
   	"opener": "latest",
@@ -18,11 +19,12 @@
   },
   
   "scripts": {
-  	"clean": "rimraf dist/*.js dist/*.js.map",
+  	"clean": "rimraf public/*.js public/*.js.map public/*.css",
 
   	"prebuild": "npm run clean -s",
-  	"build": "npm run build:scripts -s",
+  	"build": "npm run build:scripts -s && npm run build:styles -s",
   	"build:scripts": "uglifyjs -o public/dm-tools.js assets/scripts/*.js --source-map public/dm-tools.js.map",
+    "build:styles": "lessc assets/styles/main.less public/dm-tools.css",
   	"build:watch": "watch 'npm run build' assets public",
 
 	  "open:dev": "opener http://localhost:9090",

@@ -1,6 +1,6 @@
 {
   "name": "dnd-5e-dm-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An experimental (mostly for me) javascript toolset for D&D 5e",
   "main": "index.html",
   "author": "Mark ter Maat",

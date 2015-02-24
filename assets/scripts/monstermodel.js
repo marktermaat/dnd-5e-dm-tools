@@ -37,8 +37,8 @@ function MonsterModel() {
         });
     };
     
-    self.removeMonster = function() {
-        self.monsters.pop();
+    self.removeMonster = function(monster) {
+        self.monsters.remove(monster);
     }
     
     self.addMonster();

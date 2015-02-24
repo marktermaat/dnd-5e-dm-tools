@@ -18,8 +18,8 @@ function PlayerModel() {
         })
     };
     
-    self.removePlayer = function() {
-        self.players.pop();
+    self.removePlayer = function(player) {
+        self.players.remove(player);
     }
     
     self.addPlayer();

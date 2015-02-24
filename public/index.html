@@ -2,32 +2,33 @@
 	<head>
 		<title>D&D 5e DM tools</title>
 			<link href="dm-tools.css" rel="stylesheet">
+			<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 			<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js'></script>
 			<script type='text/javascript' src='//localhost:9091/livereload.js'></script>
 		<body>
 			<div id="players" class='element'>
-		    <h1>players</h1>
-		    <table class="element-table">
+		    <h1 class='element-header'>players</h1>
+		    <table class="table">
 		    	<tr>
 		            <th>name</th>
 		            <th>level</th>
 		        </tr>
 		        <!-- ko foreach: players -->
-		        <tr class="element-table-content-row">
-		        	<td><input class="element-input" data-bind="textInput: name" /></td>
-		            <td><input class="element-input small" data-bind="textInput: level" /></td>
-		            <td data-bind="click: $root.removePlayer"><image class="element-table-icon show-on-hover " src="images/icon-delete.png"></image></td>
+		        <tr class="table-hoverable-row">
+		        	<td><input class="input" data-bind="textInput: name" /></td>
+		            <td><input class="input mod-small" data-bind="textInput: level" /></td>
+		            <td data-bind="click: $root.removePlayer"><image class="icon mod-show-on-hover " src="images/icon-delete.png"></image></td>
 		        </tr>
 		        <!-- /ko -->
 		        
 		    </table>
 		    
-		    <button data-bind="click: addPlayer">add player</button>
+		    <button class='button' data-bind="click: addPlayer">add player</button>
 		</div>
 
 		<div id="monsters" class='element'>
-		    <h1>Monsters</h1>
-		    <table class="element-table">
+		    <h1 class='element-header'>monsters</h1>
+		    <table class="table">
 		        <tr>
 		            <th>Monster</th>
 		            <th>Level</th>
@@ -35,27 +36,27 @@
 		            <td></td>
 		        </tr>
 		        <!-- ko foreach: monsters -->
-		        <tr class="element-table-content-row">
+		        <tr class="table-hoverable-row">
 		            <td data-bind="text: $index" />
-		            <td><input class="element-input small" data-bind="textInput: level" /></td>
-		            <td><input class="element-input small" data-bind="textInput: amount" /></td>
-		            <td data-bind="click: $root.removePlayer"><image class="element-table-icon show-on-hover " src="images/icon-delete.png"></image></td>
+		            <td><input class="input mod-small" data-bind="textInput: level" /></td>
+		            <td><input class="input mod-small" data-bind="textInput: amount" /></td>
+		            <td data-bind="click: $root.removePlayer"><image class="icon mod-show-on-hover " src="images/icon-delete.png"></image></td>
 		        </tr>
 		        <!-- /ko -->
 		    </table>
 		    
 		    <div class="element-encounter-difficulty">
-			    <span class="element-encounter-difficulty-label">Easy</span>
-			    <span class="element-encounter-difficulty-label">Medium</span>
-			    <span class="element-encounter-difficulty-label">Hard</span>
-			    <span class="element-encounter-difficulty-label">Very hard</span>
+			    <span class="element-encounter-difficulty-label">easy</span>
+			    <span class="element-encounter-difficulty-label">medium</span>
+			    <span class="element-encounter-difficulty-label">hard</span>
+			    <span class="element-encounter-difficulty-label">epic</span>
 			    
 			    <div class="element-encounter-difficulty-bar">
 			        <div class="element-encounter-difficulty-indicator" data-bind="style: {left: difficultyDistance()}" ></div>
 			    </div>
 		    </div>
 		    
-		    <button data-bind="click: addMonster">Add</button>
+		    <button class='button' data-bind="click: addMonster">add monster</button>
 		</div>
 
 		<script type='text/javascript' src="dm-tools.js"></script>

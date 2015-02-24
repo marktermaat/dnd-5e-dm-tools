@@ -1,0 +1,32 @@
+.element-encounter-difficulty {
+    margin: 5px auto 20px auto;
+    width: 90%;
+}
+
+.element-encounter-difficulty-bar {
+	background: -webkit-linear-gradient(left,@encounter-difficulty-easy-color, @encounter-difficulty-easy-color 25%, @encounter-difficulty-medium-color 25%, @encounter-difficulty-medium-color 50%, @encounter-difficulty-hard-color 50%, @encounter-difficulty-hard-color 75%, @encounter-difficulty-epic-color 75%); /*Safari 5.1-6*/
+  	background: -o-linear-gradient(right,@encounter-difficulty-easy-color, @encounter-difficulty-easy-color 25%, @encounter-difficulty-medium-color 25%, @encounter-difficulty-medium-color 50%, @encounter-difficulty-hard-color 50%, @encounter-difficulty-hard-color 75%, @encounter-difficulty-epic-color 75%); /*Opera 11.1-12*/
+  	background: -moz-linear-gradient(right,@encounter-difficulty-easy-color, @encounter-difficulty-easy-color 25%, @encounter-difficulty-medium-color 25%, @encounter-difficulty-medium-color 50%, @encounter-difficulty-hard-color 50%, @encounter-difficulty-hard-color 75%, @encounter-difficulty-epic-color 75%); /*Fx 3.6-15*/
+  	background: linear-gradient(to right, @encounter-difficulty-easy-color, @encounter-difficulty-easy-color 25%, @encounter-difficulty-medium-color 25%, @encounter-difficulty-medium-color 50%, @encounter-difficulty-hard-color 50%, @encounter-difficulty-hard-color 75%, @encounter-difficulty-epic-color 75% );
+    margin: 5px 0;
+    width: 100%;
+    height: 10px;
+}
+
+.element-encounter-difficulty-indicator {
+    width: 2px;
+    height: 20px;
+    background-color: @encounter-difficulty-indicator-color;
+    position: relative;
+    top: -5px;
+    left: 50%;
+}
+
+.element-encounter-difficulty-label {
+    display: inline-block;
+    font-weight: 100;
+    font-size: 0.9em;
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+}

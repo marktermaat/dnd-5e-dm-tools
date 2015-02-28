@@ -59,6 +59,30 @@
 		    <button class='button' data-bind="click: addMonster">add monster</button>
 		</div>
 
+		<div id="initiative-tracker" class="element">
+			<h1 class='element-header'>initiative tracker</h1>
+		    <table class="table">
+		    	<tr>
+		            <th>Name</th>
+		            <th>Initiative</th>
+		        </tr>
+		        <!-- ko foreach: sortedParticipants -->
+		        <tr class="table-hoverable-row" data-bind="css: { 'table-highlight-row': !hasInitiative() }">
+		            <td><input class="input" data-bind="textInput: name" /></td>
+		            <td><input class="input mod-small" data-bind="textInput: initiative" /></td>
+		            <td data-bind="click: $root.removePlayer"><image class="icon mod-show-on-hover " src="images/icon-delete.png"></image></td>
+		        </tr>
+		        <!-- /ko -->
+		    </table>
+
+		    <!-- ko foreach: participants -->
+		    <span data-bind="text: name"></span>
+		    <!-- /ko -->
+
+		    <button class='button' data-bind="click: reset">reset</button>
+		    <button class='button' data-bind="click: addParticipant">add participant</button>
+		</div>
+
 		<script type='text/javascript' src="dm-tools.js"></script>
 		</body>
 	</head>

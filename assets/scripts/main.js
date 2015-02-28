@@ -55,6 +55,8 @@ var encounterXpBoundaries = function(levels) {
 
 var playerModel = new PlayerModel();
 var monsterModel = new MonsterModel();
+var initiativeModel = new InitiativeModel();
 
 ko.applyBindings(playerModel, document.getElementById('players'));
 ko.applyBindings(monsterModel, document.getElementById('monsters'));
+ko.applyBindings(initiativeModel, document.getElementById('initiative-tracker'));

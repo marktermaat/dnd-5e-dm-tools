@@ -1,5 +1,6 @@
-function PlayerModel() {
+module.exports = function() {
     var self = this;
+    var util = require('./util');
     
     self.players = ko.observableArray([]);
     self.levels = ko.pureComputed(function() {
@@ -8,7 +9,7 @@ function PlayerModel() {
         });
     });
     self.xpBoundaries = ko.pureComputed(function(){
-        return encounterXpBoundaries(self.levels());
+        return util.encounterXpBoundaries(self.levels());
     });
  
     self.addPlayer = function() {

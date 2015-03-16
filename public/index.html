@@ -1,12 +1,13 @@
 <html>
 	<head>
 		<title>D&D 5e DM tools</title>
-			<link href="dm-tools.css" rel="stylesheet">
-			<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-			<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js'></script>
-			<script type='text/javascript' src='//localhost:9091/livereload.js'></script>
-		<body>
-			<div id="players" class='element'>
+		<link href="dm-tools.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js'></script>
+		<script type='text/javascript' src='//localhost:9091/livereload.js'></script>
+	<body>
+		
+		<div id="players" class='element'>
 		    <h1 class='element-header'>players</h1>
 		    <table class="table">
 		    	<tr>
@@ -23,7 +24,9 @@
 		        
 		    </table>
 		    
-		    <button class='button' data-bind="click: addPlayer">add player</button>
+		    <div class="button-row">
+		    	<button class='button mod-blue' data-bind="click: addPlayer">add player</button>
+	    	</div>
 		</div>
 
 		<div id="monsters" class='element'>
@@ -56,7 +59,9 @@
 			    </div>
 		    </div>
 		    
-		    <button class='button' data-bind="click: addMonster">add monster</button>
+		    <div class="button-row">
+		    	<button class='button mod-blue' data-bind="click: addMonster">add monster</button>
+		    </div>
 		</div>
 
 		<div id="initiative-tracker" class="element">
@@ -75,12 +80,10 @@
 		        <!-- /ko -->
 		    </table>
 
-		    <!-- ko foreach: participants -->
-		    <span data-bind="text: name"></span>
-		    <!-- /ko -->
-
-		    <button class='button' data-bind="click: reset">reset</button>
-		    <button class='button' data-bind="click: addParticipant">add participant</button>
+		    <div class="button-row">
+		    	<button class='button mod-blue' data-bind="click: reset">reset</button>
+		    	<button class='button mod-blue' data-bind="click: addParticipant">add participant</button>
+	    	</div>
 		</div>
 
 		<script type='text/javascript' src="dm-tools.js"></script>

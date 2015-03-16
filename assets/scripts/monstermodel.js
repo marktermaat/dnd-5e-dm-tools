@@ -1,6 +1,7 @@
-function MonsterModel() {
+module.exports = function(playerModel) {
     var self = this;
-    
+    var util = require('./util');
+
     self.monsters = ko.observableArray([])
     self.totalXp = ko.pureComputed(function() {
         return parseInt(self.monsters().reduce(function(sum, monster, index, arr) {
@@ -13,11 +14,10 @@ function MonsterModel() {
         }, 0);
     });
     self.multiplier = ko.pureComputed(function() {
-        return monsterMultiplier(self.totalMonsters());
+        return util.monsterMultiplier(self.totalMonsters());
     });
     self.difficultyDistance = ko.pureComputed(function() {
         var totalDifficultyXp = self.totalXp() * self.multiplier();
-        console.log("boundaries: ", playerModel.xpBoundaries());
         var difficulty = ((totalDifficultyXp / playerModel.xpBoundaries()[4]) * 100);
         difficulty = Math.min(100, Math.max(0, difficulty));
         return difficulty + '%';
@@ -29,7 +29,7 @@ function MonsterModel() {
             level: ko.observable(1),
             amount: ko.observable(1),
             xpPerMonster: ko.pureComputed(function() {
-                return parseInt(monsterXP(monster.level()));
+                return parseInt(util.monsterXP(monster.level()));
             }),
             totalXp: ko.pureComputed(function() {
                 return monster.xpPerMonster() * parseInt(monster.amount());

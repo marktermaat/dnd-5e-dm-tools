@@ -1,9 +1,29 @@
+.button-row {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
 .button {
-    background-color: @button-color;
     border: none;
     color: @text-color-dark-background;
     height: 2.5em;
-    width: 100%;
+    -webkit-flex: 1; /* Safari 6.1+ */
+    -ms-flex: 1; /* IE 10 */ 
+    flex: 1;
+}
+
+.button.mod-blue {
+    background-color: @button-color-blue;
+}
+
+.button.mod-green {
+    background-color: @button-color-green;
+}
+
+.button.mod-orange {
+    background-color: @button-color-orange;
 }
 
 .input {

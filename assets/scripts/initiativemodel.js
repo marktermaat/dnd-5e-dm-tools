@@ -1,4 +1,4 @@
-function InitiativeModel() {
+module.exports = function(playerModel) {
     var self = this;
     
     self.participants = ko.observableArray([]);
